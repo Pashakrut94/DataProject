@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"net/http"
 
-	"dataCenter/region"
+	"github.com/Pashakrut94/DataProject/dataCenter/region"
 
 	"github.com/gorilla/mux"
 )

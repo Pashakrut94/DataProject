@@ -1,10 +1,10 @@
-package main
+package region
 
 import (
 	"encoding/json"
 	"net/http"
-	
-	"dataCenter/handlers"
+
+	"github.com/Pashakrut94/DataProject/dataCenter/handlers"
 
 	"github.com/pkg/errors"
 )
