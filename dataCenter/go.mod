@@ -1,4 +1,4 @@
-module dataCenter
+module github.com/Pashakrut94/DataProject
 
 go 1.14
 

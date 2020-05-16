@@ -5,6 +5,8 @@ import (
 	"fmt"
 	"net/http"
 
+	"dataCenter/region"
+
 	"github.com/gorilla/mux"
 )
 
@@ -22,7 +24,7 @@ func main() {
 
 	router := mux.NewRouter()
 
-	// router.Handle("/region", region.CreateRegion())
+	router.Handle("/region", region.CreateRegion())
 
 	http.Handle("/", router)
 	fmt.Printf("Server starts at: %s\n", *port)
