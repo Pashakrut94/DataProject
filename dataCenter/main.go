@@ -22,15 +22,9 @@ func main() {
 
 	router := mux.NewRouter()
 
-	router.Handle("/region", CreateRegion())
+	// router.Handle("/region", region.CreateRegion())
 
 	http.Handle("/", router)
 	fmt.Printf("Server starts at: %s\n", *port)
 	http.ListenAndServe(*port, nil)
-}
-
-func CreateRegion() http.HandlerFunc {
-	return func(w http.ResponseWriter, r *http.Request) {
-		w.Write([]byte("Create Region Handler"))
-	}
 }
