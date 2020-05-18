@@ -27,17 +27,15 @@ func HandleResponseError(w http.ResponseWriter, msg string, statusCode int) {
 	}
 }
 
-func HandleResponse(w http.ResponseWriter, payload interface{}, pretty bool) {
+func HandleResponse(w http.ResponseWriter, payload interface{}) {
 	c := FormatResponse{Data: payload}
 	var (
 		data []byte
 		err  error
 	)
-	if pretty {
-		data, err = json.MarshalIndent(&c, "", " ")
-	} else {
-		data, err = json.Marshal(&c)
-	}
+
+	data, err = json.MarshalIndent(&c, "", " ")
+
 	if err != nil {
 		http.Error(w, errors.Wrap(err, "error marshaling response").Error(), http.StatusInternalServerError)
 		return
