@@ -42,3 +42,17 @@ func (repo *RegionRepo) Update(region *Region) error {
 	}
 	return nil
 }
+
+func (repo *RegionRepo) Total() (*Total, error) {
+	row := repo.db.QueryRow("select sum (infected), sum (recovered), sum (deceased) from regions")
+	var total Total
+	total.Country = "Russia" // ?Корректное задание?: сделай агрегацию по стране(where country = "Russia")? или нужен другой запрос в базу?
+	err := row.Scan(&total.Infected, &total.Recovered, &total.Deceased)
+	if err == sql.ErrNoRows {
+		return nil, err
+	}
+	if err != nil {
+		return nil, err
+	}
+	return &total, nil
+}

@@ -8,3 +8,10 @@ type Region struct {
 	Deceased  int    `json:deceased`
 	Country   string `json:country`
 }
+
+type Total struct {
+	Infected  int    `json:infected`
+	Recovered int    `json:recovered`
+	Deceased  int    `json:deceased`
+	Country   string `json:country`
+}

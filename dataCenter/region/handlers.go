@@ -42,3 +42,21 @@ func GetRegion(repo RegionRepo) http.HandlerFunc {
 		}
 	}
 }
+
+func GetTotal(repo RegionRepo) http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+		total, err := HandleGetTotal(repo)
+		switch errors.Cause(err) {
+		case ErrEmptyDB:
+			// http: superfluous response.WriteHeader call: from w.WriteHeader(statusCode)
+			handlers.HandleResponseError(w, errors.Wrap(err, "no data for aggregate").Error(), http.StatusNoContent)
+			return
+		case nil:
+			handlers.HandleResponse(w, total)
+			return
+		default:
+			handlers.HandleResponseError(w, errors.Wrap(err, err.Error()).Error(), http.StatusInternalServerError)
+			return
+		}
+	}
+}

@@ -19,6 +19,7 @@ func HandleResponseError(w http.ResponseWriter, msg string, statusCode int) {
 		http.Error(w, errors.Wrap(err, "error marshaling response").Error(), http.StatusInternalServerError)
 		return
 	}
+	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(statusCode)
 	_, err = w.Write(data)
 	if err != nil {
@@ -40,6 +41,7 @@ func HandleResponse(w http.ResponseWriter, payload interface{}) {
 		http.Error(w, errors.Wrap(err, "error marshaling response").Error(), http.StatusInternalServerError)
 		return
 	}
+	w.Header().Set("Content-Type", "application/json")
 	_, err = w.Write(data)
 	if err != nil {
 		http.Error(w, errors.Wrap(err, "error writing data").Error(), http.StatusInternalServerError)

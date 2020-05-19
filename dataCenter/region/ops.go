@@ -45,3 +45,14 @@ func HandleGetRegion(repo RegionRepo, isoCode string) (Region, error) {
 	}
 	return *region, nil
 }
+
+func HandleGetTotal(repo RegionRepo) (Total, error) {
+	total, err := repo.Total()
+	if err == sql.ErrNoRows {
+		return Total{}, ErrEmptyDB
+	}
+	if err != nil {
+		return Total{}, err
+	}
+	return *total, nil
+}
