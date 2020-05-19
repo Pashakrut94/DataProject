@@ -13,7 +13,7 @@ import (
 )
 
 var (
-	port     = flag.String("port", ":8080", "Local port")
+	port     = flag.String("port", ":8080", "Local port server")
 	pgUser   = flag.String("pg_user", "Pasha", "PostgreSQL name")
 	pgPwd    = flag.String("pg_pwd", "12345678", "PostgreSQL password")
 	pgHost   = flag.String("pg_host", "localhost", "PostgreSQL host")
