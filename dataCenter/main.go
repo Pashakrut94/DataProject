@@ -38,6 +38,7 @@ func main() {
 	router.Handle("/region", region.CreateRegion(*regionRepo)).Methods("POST")
 	router.Handle("/region", region.GetRegion(*regionRepo)).Methods("GET")
 	router.Handle("/total", region.GetTotal(*regionRepo)).Methods("GET")
+	router.Handle("/download", region.DownloadFile(*regionRepo)).Methods("POST")
 
 	http.Handle("/", router)
 	fmt.Printf("Server starts at: %s\n", *port)

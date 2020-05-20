@@ -1,0 +1,609 @@
+{
+  "infected": 262843,
+  "tested": 6188102,
+  "recovered": 58226,
+  "deceased": 2418,
+  "infectedByRegion": [
+    {
+      "region": "Алтайский край",
+      "isoCode": "RU-ALT",
+      "infected": 847,
+      "recovered": 422,
+      "deceased": 3
+    },
+    {
+      "region": "Чувашия",
+      "isoCode": "RU-CU",
+      "infected": 1522,
+      "recovered": 405,
+      "deceased": 8
+    },
+    {
+      "region": "Хакасия",
+      "isoCode": "RU-KK",
+      "infected": 557,
+      "recovered": 192,
+      "deceased": 9
+    },
+    {
+      "region": "Тыва",
+      "isoCode": "RU-TY",
+      "infected": 222,
+      "recovered": 44,
+      "deceased": 1
+    },
+    {
+      "region": "Татарстан",
+      "isoCode": "RU-TA",
+      "infected": 2064,
+      "recovered": 1006,
+      "deceased": 6
+    },
+    {
+      "region": "Северная Осетия",
+      "isoCode": "RU-SE",
+      "infected": 1943,
+      "recovered": 903,
+      "deceased": 13
+    },
+    {
+      "region": "Якутия",
+      "isoCode": "RU-SA",
+      "infected": 722,
+      "recovered": 246,
+      "deceased": 4
+    },
+    {
+      "region": "Мордовия",
+      "isoCode": "RU-MO",
+      "infected": 1323,
+      "recovered": 350,
+      "deceased": 9
+    },
+    {
+      "region": "Марий Эл",
+      "isoCode": "RU-ME",
+      "infected": 1078,
+      "recovered": 809,
+      "deceased": 7
+    },
+    {
+      "region": "Крым",
+      "isoCode": "RU-CR",
+      "infected": 245,
+      "recovered": 89,
+      "deceased": 2
+    },
+    {
+      "region": "Республика Коми",
+      "isoCode": "RU-KO",
+      "infected": 882,
+      "recovered": 387,
+      "deceased": 16
+    },
+    {
+      "region": "Карелия",
+      "isoCode": "RU-KR",
+      "infected": 194,
+      "recovered": 49,
+      "deceased": 1
+    },
+    {
+      "region": "Калмыкия",
+      "isoCode": "RU-KL",
+      "infected": 618,
+      "recovered": 195,
+      "deceased": 6
+    },
+    {
+      "region": "Ингушетия",
+      "isoCode": "RU-IN",
+      "infected": 1407,
+      "recovered": 337,
+      "deceased": 35
+    },
+    {
+      "region": "Дагестан",
+      "isoCode": "RU-DA",
+      "infected": 3192,
+      "recovered": 1490,
+      "deceased": 27
+    },
+    {
+      "region": "Бурятия",
+      "isoCode": "RU-BU",
+      "infected": 824,
+      "recovered": 277,
+      "deceased": 6
+    },
+    {
+      "region": "Башкортостан",
+      "isoCode": "RU-BA",
+      "infected": 1874,
+      "recovered": 524,
+      "deceased": 16
+    },
+    {
+      "region": "Республика Алтай",
+      "isoCode": "RU-AL",
+      "infected": 65,
+      "recovered": 30,
+      "deceased": 0
+    },
+    {
+      "region": "Ростовская область",
+      "isoCode": "RU-ROS",
+      "infected": 2200,
+      "recovered": 629,
+      "deceased": 25
+    },
+    {
+      "region": "Рязанская область",
+      "isoCode": "RU-RYA",
+      "infected": 2123,
+      "recovered": 352,
+      "deceased": 7
+    },
+    {
+      "region": "Самарская область",
+      "isoCode": "RU-SAM",
+      "infected": 1302,
+      "recovered": 233,
+      "deceased": 9
+    },
+    {
+      "region": "Санкт-Петербург",
+      "isoCode": "RU-SPE",
+      "infected": 9486,
+      "recovered": 2005,
+      "deceased": 74
+    },
+    {
+      "region": "Чукотский автономный округ",
+      "isoCode": "RU-CHU",
+      "infected": 42,
+      "recovered": 16,
+      "deceased": 0
+    },
+    {
+      "region": "Чечня",
+      "isoCode": "RU-CE",
+      "infected": 891,
+      "recovered": 529,
+      "deceased": 9
+    },
+    {
+      "region": "Челябинская область",
+      "isoCode": "RU-CHE",
+      "infected": 1407,
+      "recovered": 438,
+      "deceased": 6
+    },
+    {
+      "region": "Ханты-Мансийский автономный округ — Югра",
+      "isoCode": "RU-KHM",
+      "infected": 965,
+      "recovered": 356,
+      "deceased": 8
+    },
+    {
+      "region": "Хабаровский край",
+      "isoCode": "RU-KHA",
+      "infected": 1126,
+      "recovered": 497,
+      "deceased": 7
+    },
+    {
+      "region": "Ульяновская область",
+      "isoCode": "RU-ULY",
+      "infected": 1081,
+      "recovered": 246,
+      "deceased": 5
+    },
+    {
+      "region": "Удмуртия",
+      "isoCode": "RU-UD",
+      "infected": 408,
+      "recovered": 202,
+      "deceased": 12
+    },
+    {
+      "region": "Тюменская область",
+      "isoCode": "RU-TYU",
+      "infected": 1057,
+      "recovered": 357,
+      "deceased": 6
+    },
+    {
+      "region": "Адыгея",
+      "isoCode": "RU-AD",
+      "infected": 307,
+      "recovered": 214,
+      "deceased": 8
+    },
+    {
+      "region": "Тульская область",
+      "isoCode": "RU-TUL",
+      "infected": 2263,
+      "recovered": 556,
+      "deceased": 18
+    },
+    {
+      "region": "Тверская область",
+      "isoCode": "RU-TVE",
+      "infected": 1006,
+      "recovered": 447,
+      "deceased": 10
+    },
+    {
+      "region": "Тамбовская область",
+      "isoCode": "RU-TAM",
+      "infected": 1737,
+      "recovered": 471,
+      "deceased": 3
+    },
+    {
+      "region": "Ставропольский край",
+      "isoCode": "RU-STA",
+      "infected": 1308,
+      "recovered": 462,
+      "deceased": 26
+    },
+    {
+      "region": "Смоленская область",
+      "isoCode": "RU-SMO",
+      "infected": 1105,
+      "recovered": 326,
+      "deceased": 10
+    },
+    {
+      "region": "Севастополь",
+      "isoCode": "RU-SEV",
+      "infected": 135,
+      "recovered": 65,
+      "deceased": 2
+    },
+    {
+      "region": "Свердловская область",
+      "isoCode": "RU-SVE",
+      "infected": 2466,
+      "recovered": 546,
+      "deceased": 5
+    },
+    {
+      "region": "Сахалинская область",
+      "isoCode": "RU-SAK",
+      "infected": 45,
+      "recovered": 27,
+      "deceased": 0
+    },
+    {
+      "region": "Саратовская область",
+      "isoCode": "RU-SAR",
+      "infected": 1526,
+      "recovered": 321,
+      "deceased": 7
+    },
+    {
+      "region": "Томская область",
+      "isoCode": "RU-TOM",
+      "infected": 329,
+      "recovered": 80,
+      "deceased": 4
+    },
+    {
+      "region": "Ямало-Ненецкий автономный округ",
+      "isoCode": "RU-YAN",
+      "infected": 1548,
+      "recovered": 220,
+      "deceased": 3
+    },
+    {
+      "region": "Псковская область",
+      "isoCode": "RU-PSK",
+      "infected": 367,
+      "recovered": 112,
+      "deceased": 8
+    },
+    {
+      "region": "Пермский край",
+      "isoCode": "RU-PER",
+      "infected": 921,
+      "recovered": 540,
+      "deceased": 13
+    },
+    {
+      "region": "Камчатский край",
+      "isoCode": "RU-KAM",
+      "infected": 443,
+      "recovered": 111,
+      "deceased": 1
+    },
+    {
+      "region": "Калужская область",
+      "isoCode": "RU-KLU",
+      "infected": 2213,
+      "recovered": 438,
+      "deceased": 19
+    },
+    {
+      "region": "Калининградская область",
+      "isoCode": "RU-KGD",
+      "infected": 881,
+      "recovered": 323,
+      "deceased": 11
+    },
+    {
+      "region": "Кабардино-Балкария",
+      "isoCode": "RU-KB",
+      "infected": 1619,
+      "recovered": 319,
+      "deceased": 7
+    },
+    {
+      "region": "Иркутская область",
+      "isoCode": "RU-IRK",
+      "infected": 474,
+      "recovered": 117,
+      "deceased": 4
+    },
+    {
+      "region": "Ивановская область",
+      "isoCode": "RU-IVA",
+      "infected": 1124,
+      "recovered": 307,
+      "deceased": 13
+    },
+    {
+      "region": "Забайкальский край",
+      "isoCode": "RU-ZAB",
+      "infected": 454,
+      "recovered": 178,
+      "deceased": 2
+    },
+    {
+      "region": "Еврейская автономная область",
+      "isoCode": "RU-YEV",
+      "infected": 222,
+      "recovered": 60,
+      "deceased": 2
+    },
+    {
+      "region": "Воронежская область",
+      "isoCode": "RU-VOR",
+      "infected": 1074,
+      "recovered": 552,
+      "deceased": 12
+    },
+    {
+      "region": "Вологодская область",
+      "isoCode": "RU-VLG",
+      "infected": 361,
+      "recovered": 172,
+      "deceased": 2
+    },
+    {
+      "region": "Волгоградская область",
+      "isoCode": "RU-VGG",
+      "infected": 1445,
+      "recovered": 407,
+      "deceased": 13
+    },
+    {
+      "region": "Владимирская область",
+      "isoCode": "RU-VLA",
+      "infected": 1592,
+      "recovered": 149,
+      "deceased": 15
+    },
+    {
+      "region": "Брянская область",
+      "isoCode": "RU-BRY",
+      "infected": 1995,
+      "recovered": 834,
+      "deceased": 30
+    },
+    {
+      "region": "Белгородская область",
+      "isoCode": "RU-BEL",
+      "infected": 1073,
+      "recovered": 299,
+      "deceased": 9
+    },
+    {
+      "region": "Астраханская область",
+      "isoCode": "RU-AST",
+      "infected": 945,
+      "recovered": 294,
+      "deceased": 7
+    },
+    {
+      "region": "Архангельская область",
+      "isoCode": "RU-ARK",
+      "infected": 586,
+      "recovered": 229,
+      "deceased": 3
+    },
+    {
+      "region": "Амурская область",
+      "isoCode": "RU-AMU",
+      "infected": 204,
+      "recovered": 44,
+      "deceased": 1
+    },
+    {
+      "region": "Карачаево-Черкесия",
+      "isoCode": "RU-KC",
+      "infected": 614,
+      "recovered": 129,
+      "deceased": 3
+    },
+    {
+      "region": "Кемеровская область",
+      "isoCode": "RU-KEM",
+      "infected": 296,
+      "recovered": 99,
+      "deceased": 7
+    },
+    {
+      "region": "Кировская область",
+      "isoCode": "RU-KIR",
+      "infected": 932,
+      "recovered": 452,
+      "deceased": 5
+    },
+    {
+      "region": "Костромская область",
+      "isoCode": "RU-KOS",
+      "infected": 452,
+      "recovered": 168,
+      "deceased": 3
+    },
+    {
+      "region": "Пензенская область",
+      "isoCode": "RU-PNZ",
+      "infected": 985,
+      "recovered": 658,
+      "deceased": 10
+    },
+    {
+      "region": "Орловская область",
+      "isoCode": "RU-ORL",
+      "infected": 1329,
+      "recovered": 362,
+      "deceased": 10
+    },
+    {
+      "region": "Оренбургская область",
+      "isoCode": "RU-ORE",
+      "infected": 1208,
+      "recovered": 528,
+      "deceased": 5
+    },
+    {
+      "region": "Омская область",
+      "isoCode": "RU-OMS",
+      "infected": 436,
+      "recovered": 74,
+      "deceased": 7
+    },
+    {
+      "region": "Новосибирская область",
+      "isoCode": "RU-NVS",
+      "infected": 1447,
+      "recovered": 526,
+      "deceased": 18
+    },
+    {
+      "region": "Новгородская область",
+      "isoCode": "RU-NGR",
+      "infected": 584,
+      "recovered": 158,
+      "deceased": 5
+    },
+    {
+      "region": "Нижегородская область",
+      "isoCode": "RU-NIZ",
+      "infected": 5903,
+      "recovered": 1220,
+      "deceased": 40
+    },
+    {
+      "region": "Ненецкий автономный округ",
+      "isoCode": "RU-NEN",
+      "infected": 52,
+      "recovered": 7,
+      "deceased": 0
+    },
+    {
+      "region": "Приморский край",
+      "isoCode": "RU-PRI",
+      "infected": 1110,
+      "recovered": 340,
+      "deceased": 12
+    },
+    {
+      "region": "Мурманская область",
+      "isoCode": "RU-MUR",
+      "infected": 2551,
+      "recovered": 489,
+      "deceased": 6
+    },
+    {
+      "region": "Москва",
+      "isoCode": "RU-MOW",
+      "infected": 135464,
+      "recovered": 24562,
+      "deceased": 1358
+    },
+    {
+      "region": "Магаданская область",
+      "isoCode": "RU-MAG",
+      "infected": 171,
+      "recovered": 98,
+      "deceased": 3
+    },
+    {
+      "region": "Липецкая область",
+      "isoCode": "RU-LIP",
+      "infected": 1083,
+      "recovered": 258,
+      "deceased": 3
+    },
+    {
+      "region": "Ленинградская область",
+      "isoCode": "RU-LEN",
+      "infected": 1841,
+      "recovered": 593,
+      "deceased": 7
+    },
+    {
+      "region": "Курская область",
+      "isoCode": "RU-KRS",
+      "infected": 1777,
+      "recovered": 436,
+      "deceased": 7
+    },
+    {
+      "region": "Курганская область",
+      "isoCode": "RU-KGN",
+      "infected": 103,
+      "recovered": 43,
+      "deceased": 0
+    },
+    {
+      "region": "Красноярский край",
+      "isoCode": "RU-KYA",
+      "infected": 1590,
+      "recovered": 500,
+      "deceased": 16
+    },
+    {
+      "region": "Краснодарский край",
+      "isoCode": "RU-KDA",
+      "infected": 2418,
+      "recovered": 979,
+      "deceased": 24
+    },
+    {
+      "region": "Московская область",
+      "isoCode": "RU-MOS",
+      "infected": 25525,
+      "recovered": 2468,
+      "deceased": 253
+    },
+    {
+      "region": "Ярославская область",
+      "isoCode": "RU-YAR",
+      "infected": 1537,
+      "recovered": 244,
+      "deceased": 11
+    }
+  ],
+  "country": "Russia",
+  "historyData": "https://api.apify.com/v2/datasets/5JO5GL1h8Qv1CnG0m/items?format=json",
+  "sourceUrl": "https://covid19.rosminzdrav.ru/",
+  "lastUpdatedAtApify": "2020-05-15T15:50:00.000Z",
+  "lastUpdatedAtSource": "2020-05-15T15:50:00.000Z",
+  "readMe": "https://apify.com/krakorj/covid-russia"
+}
