@@ -19,8 +19,12 @@ func GetTotal() http.HandlerFunc {
 			handlers.HandleResponseError(w, errors.Wrap(err, err.Error()).Error(), http.StatusInternalServerError)
 			return
 		}
+		defer resp.Body.Close()
 
-		body, _ := ioutil.ReadAll(resp.Body)
+		body, err := ioutil.ReadAll(resp.Body)
+		if err != nil {
+			handlers.HandleResponseError(w, errors.Wrap(err, err.Error()).Error(), http.StatusInternalServerError)
+		}
 
 		fmt.Println("response Status:", resp.Status)
 		fmt.Println("response Headers:", resp.Header)
@@ -43,7 +47,11 @@ func GetRegion() http.HandlerFunc {
 			return
 		}
 
-		body, _ := ioutil.ReadAll(resp.Body)
+		body, err := ioutil.ReadAll(resp.Body)
+		if err != nil {
+			handlers.HandleResponseError(w, errors.Wrap(err, err.Error()).Error(), http.StatusInternalServerError)
+			return
+		}
 
 		fmt.Println("response Status:", resp.Status)
 		fmt.Println("response Headers:", resp.Header)
@@ -72,8 +80,13 @@ func UploadFile() http.HandlerFunc {
 			handlers.HandleResponseError(w, errors.Wrap(err, err.Error()).Error(), http.StatusInternalServerError)
 			return
 		}
+		defer resp.Body.Close()
 
-		body, _ := ioutil.ReadAll(resp.Body)
+		body, err := ioutil.ReadAll(resp.Body)
+		if err != nil {
+			handlers.HandleResponseError(w, errors.Wrap(err, err.Error()).Error(), http.StatusInternalServerError)
+			return
+		}
 
 		fmt.Println("response Status:", resp.Status)
 		fmt.Println("response Headers:", resp.Header)

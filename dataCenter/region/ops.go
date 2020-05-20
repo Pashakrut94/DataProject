@@ -8,7 +8,7 @@ import (
 
 func validateCreateRegion(repo RegionRepo, region Region) error {
 	_, err := repo.Get(region.ISOCode)
-	if err == sql.ErrNoRows {
+	if errors.Is(err, sql.ErrNoRows) {
 		return sql.ErrNoRows
 	}
 	if err != nil {
@@ -37,7 +37,7 @@ func HandleCreateRegion(repo RegionRepo, region Region) (Region, error) {
 
 func HandleGetRegion(repo RegionRepo, isoCode string) (Region, error) {
 	region, err := repo.Get(isoCode)
-	if err == sql.ErrNoRows {
+	if errors.Is(err, sql.ErrNoRows) {
 		return Region{}, ErrNotFound
 	}
 	if err != nil {
@@ -48,7 +48,7 @@ func HandleGetRegion(repo RegionRepo, isoCode string) (Region, error) {
 
 func HandleGetTotal(repo RegionRepo) (Total, error) {
 	total, err := repo.Total()
-	if err == sql.ErrNoRows {
+	if errors.Is(err, sql.ErrNoRows) {
 		return Total{}, ErrEmptyDB
 	}
 	if err != nil {

@@ -3,6 +3,7 @@ package main
 import (
 	"flag"
 	"fmt"
+	"log"
 	"net/http"
 
 	"github.com/Pashakrut94/DataProject/client/statistics"
@@ -23,6 +24,10 @@ func main() {
 
 	http.Handle("/", router)
 	fmt.Printf("Client starts at: %s\n", *port)
-	http.ListenAndServe(*port, nil)
+
+	if err := http.ListenAndServe(*port, router); err != nil {
+		log.Fatalln(err)
+		return
+	}
 
 }
