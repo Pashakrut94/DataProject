@@ -1,6 +1,6 @@
 CREATE TABLE IF NOT EXISTS regions (
-    isocode VARCHAR(10) UNIQUE,
-    region VARCHAR(30) UNIQUE,
+    isocode VARCHAR(15) UNIQUE,
+    region VARCHAR(150) UNIQUE,
     infected INTEGER,
     recovered INTEGER,
     deceased INTEGER,
