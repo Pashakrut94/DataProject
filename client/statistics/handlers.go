@@ -34,7 +34,6 @@ func GetTotal() http.HandlerFunc {
 func GetRegion() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		isoCode := r.URL.Query().Get("code")
-		fmt.Println(isoCode)
 
 		var url = "http://localhost:8080/region?code=" + isoCode
 
