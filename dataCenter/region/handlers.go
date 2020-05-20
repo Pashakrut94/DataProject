@@ -49,7 +49,6 @@ func GetTotal(repo RegionRepo) http.HandlerFunc {
 		total, err := HandleGetTotal(repo)
 		switch errors.Cause(err) {
 		case ErrEmptyDB:
-			// http: superfluous response.WriteHeader call: from w.WriteHeader(statusCode)
 			handlers.HandleResponseError(w, errors.Wrap(err, "no data for aggregate").Error(), http.StatusNoContent)
 			return
 		case nil:

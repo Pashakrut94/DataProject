@@ -17,11 +17,12 @@ func main() {
 
 	router := mux.NewRouter()
 
-	router.Handle("/upload", statistics.UploadFile()).Methods("POST")
-	// router.Handle("/statistics", statistics.GetTotal()).Methods("GET")
+	router.Handle("/upload", statistics.UploadFile())
+	router.Handle("/statistics", statistics.GetTotal())
+	router.Handle("/stats", statistics.GetRegion()) // Ставлю statistics, и ухожу почемут на /statistics (не парсит r.FormValue?)
 
 	http.Handle("/", router)
-	fmt.Printf("Server starts at: %s\n", *port)
+	fmt.Printf("Client starts at: %s\n", *port)
 	http.ListenAndServe(*port, nil)
 
 }

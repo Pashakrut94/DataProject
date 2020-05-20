@@ -48,3 +48,12 @@ func HandleResponse(w http.ResponseWriter, payload interface{}) {
 		return
 	}
 }
+
+func HandlerResponseBody(w http.ResponseWriter, body []byte) {
+	w.Header().Set("Content-Type", "application/json")
+	_, err := w.Write(body)
+	if err != nil {
+		http.Error(w, errors.Wrap(err, "error writing data").Error(), http.StatusInternalServerError)
+		return
+	}
+}

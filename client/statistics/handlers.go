@@ -1,10 +1,8 @@
 package statistics
 
 import (
-	"bytes"
 	"fmt"
 	"io/ioutil"
-	"log"
 	"net/http"
 
 	"github.com/Pashakrut94/DataProject/client/handlers"
@@ -13,38 +11,77 @@ import (
 
 func GetTotal() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		resp, err := http.Get("http://localhost:8080/total")
+
+		var url = "http://localhost:8080/total"
+
+		resp, err := http.Get(url)
 		if err != nil {
 			handlers.HandleResponseError(w, errors.Wrap(err, err.Error()).Error(), http.StatusInternalServerError)
 			return
 		}
-		defer resp.Body.Close()
+
+		body, _ := ioutil.ReadAll(resp.Body)
+
+		fmt.Println("response Status:", resp.Status)
+		fmt.Println("response Headers:", resp.Header)
+		fmt.Println("response Body:", string(body))
+
+		handlers.HandlerResponseBody(w, body)
+
+	}
+}
+
+func GetRegion() http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+		// /statistics?code=RU-KDA перебрасывает сразу на /statistics и идет по другому ендпоинту получается..
+		// /stats?code=RU-KDA все работает как надо, в чем проблема?
+		isocode := r.FormValue("code")
+
+		var url = "http://localhost:8080/region?code=" + isocode
+
+		resp, err := http.Get(url)
+		if err != nil {
+			handlers.HandleResponseError(w, errors.Wrap(err, err.Error()).Error(), http.StatusInternalServerError)
+			return
+		}
+
+		body, _ := ioutil.ReadAll(resp.Body)
+
+		fmt.Println("response Status:", resp.Status)
+		fmt.Println("response Headers:", resp.Header)
+		fmt.Println("response Body:", string(body))
+
+		handlers.HandlerResponseBody(w, body)
 
 	}
 }
 
 func UploadFile() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
+		var (
+			fileName = "data.json"
+			url      = "http://localhost:8080/download"
+		)
 
-		var url = "http://localhost:8080/download"
-
-		data, err := ioutil.ReadFile("data.json")
+		dataBytes, err := HandleUploadFile(fileName)
 		if err != nil {
-			log.Fatalln("File reading error", err)
+			handlers.HandleResponseError(w, errors.Wrap(err, err.Error()).Error(), http.StatusInternalServerError)
 			return
 		}
 
-		dataBytes := bytes.NewReader(data)
-
 		resp, err := http.Post(url, "application/json", dataBytes)
 		if err != nil {
-			log.Fatalln(err)
+			handlers.HandleResponseError(w, errors.Wrap(err, err.Error()).Error(), http.StatusInternalServerError)
+			return
 		}
+
+		body, _ := ioutil.ReadAll(resp.Body)
 
 		fmt.Println("response Status:", resp.Status)
 		fmt.Println("response Headers:", resp.Header)
-		body, _ := ioutil.ReadAll(resp.Body)
 		fmt.Println("response Body:", string(body))
+
+		handlers.HandlerResponseBody(w, body)
 
 	}
 }
