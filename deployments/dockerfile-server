@@ -1,0 +1,6 @@
+FROM golang:alpine AS builder
+
+RUN mkdir /app
+ADD . /app
+WORKDIR /app
+

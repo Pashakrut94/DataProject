@@ -33,11 +33,10 @@ func GetTotal() http.HandlerFunc {
 
 func GetRegion() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		// /statistics?code=RU-KDA перебрасывает сразу на /statistics и идет по другому ендпоинту получается..
-		// /stats?code=RU-KDA все работает как надо, в чем проблема?
-		isocode := r.FormValue("code")
+		isoCode := r.URL.Query().Get("code")
+		fmt.Println(isoCode)
 
-		var url = "http://localhost:8080/region?code=" + isocode
+		var url = "http://localhost:8080/region?code=" + isoCode
 
 		resp, err := http.Get(url)
 		if err != nil {
