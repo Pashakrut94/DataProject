@@ -1,6 +1,8 @@
 package statistics
 
 import (
+	"bytes"
+	"encoding/json"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -46,6 +48,7 @@ func GetRegion() http.HandlerFunc {
 			handlers.HandleResponseError(w, errors.Wrap(err, err.Error()).Error(), http.StatusInternalServerError)
 			return
 		}
+		defer resp.Body.Close()
 
 		body, err := ioutil.ReadAll(resp.Body)
 		if err != nil {
@@ -64,35 +67,40 @@ func GetRegion() http.HandlerFunc {
 
 func UploadFile() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		var (
-			fileName = "data.json"
-			url      = "http://localhost:8080/download"
-		)
+		var url = "http://localhost:8080/region"
 
-		dataBytes, err := HandleUploadFile(fileName)
+		regions, err := HandleUploadFile(r)
 		if err != nil {
 			handlers.HandleResponseError(w, errors.Wrap(err, err.Error()).Error(), http.StatusInternalServerError)
 			return
 		}
 
-		resp, err := http.Post(url, "application/json", dataBytes)
-		if err != nil {
-			handlers.HandleResponseError(w, errors.Wrap(err, err.Error()).Error(), http.StatusInternalServerError)
-			return
+		for i := 0; i < len(regions.Regions); i++ {
+			regions.Regions[i].Country = "Russia"
+
+			regionByte, err := json.Marshal(regions.Regions[i])
+			if err != nil {
+				handlers.HandleResponseError(w, errors.Wrap(err, err.Error()).Error(), http.StatusInternalServerError)
+				return
+			}
+
+			region := bytes.NewReader(regionByte)
+
+			resp, err := http.Post(url, "application/json", region)
+			if err != nil {
+				handlers.HandleResponseError(w, errors.Wrap(err, err.Error()).Error(), http.StatusInternalServerError)
+				return
+			}
+			defer resp.Body.Close()
+
+			body, err := ioutil.ReadAll(resp.Body)
+			if err != nil {
+				handlers.HandleResponseError(w, errors.Wrap(err, err.Error()).Error(), http.StatusInternalServerError)
+				return
+			}
+
+			handlers.HandlerResponseBody(w, body)
 		}
-		defer resp.Body.Close()
-
-		body, err := ioutil.ReadAll(resp.Body)
-		if err != nil {
-			handlers.HandleResponseError(w, errors.Wrap(err, err.Error()).Error(), http.StatusInternalServerError)
-			return
-		}
-
-		fmt.Println("response Status:", resp.Status)
-		fmt.Println("response Headers:", resp.Header)
-		fmt.Println("response Body:", string(body))
-
-		handlers.HandlerResponseBody(w, body)
 
 	}
 }

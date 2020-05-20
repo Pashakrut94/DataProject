@@ -19,6 +19,7 @@ func main() {
 	router := mux.NewRouter()
 
 	router.Handle("/upload", statistics.UploadFile())
+
 	router.Queries("code", "").Path("/statistics").Handler(statistics.GetRegion())
 	router.Path("/statistics").Handler(statistics.GetTotal())
 
