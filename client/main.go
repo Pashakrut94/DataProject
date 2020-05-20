@@ -18,8 +18,8 @@ func main() {
 	router := mux.NewRouter()
 
 	router.Handle("/upload", statistics.UploadFile())
-	router.Handle("/statistics", statistics.GetTotal())
-	router.Handle("/stats", statistics.GetRegion()) // Ставлю statistics, и ухожу почемут на /statistics (не парсит r.FormValue?)
+	router.Queries("code", "").Path("/statistics").Handler(statistics.GetRegion())
+	router.Path("/statistics").Handler(statistics.GetTotal())
 
 	http.Handle("/", router)
 	fmt.Printf("Client starts at: %s\n", *port)
