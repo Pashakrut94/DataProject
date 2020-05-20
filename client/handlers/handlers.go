@@ -20,11 +20,6 @@ func HandleResponseError(w http.ResponseWriter, msg string, statusCode int) {
 		return
 	}
 	w.Header().Set("Content-Type", "application/json")
-	// avoid superfluous response.WriteHeader call:
-	// if statusCode == 204 {
-	// 	w.WriteHeader(http.StatusNoContent)
-	// 	return
-	// }
 	w.WriteHeader(statusCode)
 	_, err = w.Write(data)
 	if err != nil {
