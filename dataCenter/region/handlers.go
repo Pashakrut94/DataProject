@@ -2,6 +2,7 @@ package region
 
 import (
 	"encoding/json"
+	"io/ioutil"
 	"net/http"
 
 	"github.com/Pashakrut94/DataProject/dataCenter/handlers"
@@ -31,7 +32,7 @@ func GetRegion(repo RegionRepo) http.HandlerFunc {
 		switch errors.Cause(err) {
 		case ErrNotFound:
 			// http: superfluous response.WriteHeader call: from w.WriteHeader(statusCode)
-			handlers.HandleResponseError(w, errors.Wrap(err, "no content").Error(), http.StatusNoContent)
+			handlers.HandleResponseError(w, errors.Wrap(err, "no content").Error(), http.StatusNotFound)
 			return
 		case nil:
 			handlers.HandleResponse(w, region)
@@ -58,5 +59,31 @@ func GetTotal(repo RegionRepo) http.HandlerFunc {
 			handlers.HandleResponseError(w, errors.Wrap(err, err.Error()).Error(), http.StatusInternalServerError)
 			return
 		}
+	}
+}
+
+func DownloadFile(repo RegionRepo) http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+		body, err := ioutil.ReadAll(r.Body)
+		if err != nil {
+			handlers.HandleResponseError(w, errors.Wrap(err, err.Error()).Error(), http.StatusInternalServerError)
+			return
+		}
+		regions, err := ParseFileFromRequest(body)
+		if err != nil {
+			handlers.HandleResponseError(w, errors.Wrap(err, err.Error()).Error(), http.StatusInternalServerError)
+			return
+		}
+
+		for i := 0; i < len(regions.Regions); i++ {
+			regions.Regions[i].Country = "Russia"
+
+			_, err := HandleCreateRegion(repo, regions.Regions[i])
+			if err != nil {
+				handlers.HandleResponseError(w, errors.Wrap(err, "error creating region").Error(), http.StatusInternalServerError)
+				return
+			}
+		}
+		handlers.HandleResponse(w, "success: file downloaded")
 	}
 }
